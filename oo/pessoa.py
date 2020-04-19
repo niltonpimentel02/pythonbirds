@@ -10,9 +10,13 @@ class Pessoa:
         return f'Olá {id(self)}'
 
 
+class Homem(Pessoa):
+    pass
+
+
 if __name__ == '__main__':
-    renzo = Pessoa(nome='Renzo')
-    luciano = Pessoa(renzo, nome='Luciano')
+    renzo = Homem(nome='Renzo')
+    luciano = Homem(renzo, nome='Luciano')
     print(Pessoa.cumprimentar(luciano))
     print(id(luciano))
     print(luciano.cumprimentar())
@@ -29,3 +33,8 @@ if __name__ == '__main__':
     print(luciano.olhos)
     print(renzo.olhos)
     print(id(Pessoa.olhos), id(luciano.olhos), id(renzo.olhos))
+    pessoa = Pessoa('Anonimo')
+    print(isinstance(pessoa, Pessoa))
+    print(isinstance(pessoa, Homem))
+    print(isinstance(renzo, Pessoa))
+    print(isinstance(renzo, Homem))
